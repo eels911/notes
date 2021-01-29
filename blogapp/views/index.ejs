@@ -1,0 +1,25 @@
+<%- include("./partials/header") %>
+<%- include("./partials/navbar") %>
+
+<div class="container mt-5 py-5">
+    <h3>Все посты 😇 </h3>
+
+    <% blogs.reverse() %> 
+
+    <% blogs.forEach(blog => { %>
+    <div class="card mt-3">
+        <div class="card-body">
+            <p class="text-muted">published at: <%= blog.postedAt %> </p>
+            <h5 class="card-title"><%= blog.title %> </h5>
+            <p class="card-text"><%= blog.content.slice(0, 99) %> .... <a href="/blog/<%= blog._id %>">читать далее</a></p>
+            <a href=" /blog/<%= blog._id %>" class="btn btn-primary">Читать далее</a>
+            <a href=" /delete/<%= blog._id %>" class="btn btn-danger">Удалить</a>
+            <a href=" /edit/<%= blog._id %>" class="btn btn-warning">Редактировать</a>
+        </div>
+    </div>
+    <%}) %>
+
+
+</div>
+
+<%- include("./partials/footer") %>
